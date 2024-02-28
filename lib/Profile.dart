@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Wallet.dart';
 import 'Track.dart';
 import 'Home.dart';
+import 'core/CustomListTile.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -20,24 +21,13 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         selectedItemColor: const Color.fromARGB(255, 5, 96, 250),
         unselectedItemColor: const Color.fromARGB(255, 167, 167, 167),
-        selectedLabelStyle: const TextStyle(
-            color: Color.fromARGB(255, 167, 167, 167),
-            fontSize: 12,
-            fontFamily: "Roboto",
-            fontWeight: FontWeight.w400,
-            fontStyle: FontStyle.normal
-        ),
-        unselectedLabelStyle: const TextStyle(
-            color: Color.fromARGB(255, 5, 96, 250),
-            fontSize: 12,
-            fontFamily: "Roboto",
-            fontWeight: FontWeight.w400,
-            fontStyle: FontStyle.normal
-        ),
+        selectedLabelStyle: Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
+        unselectedLabelStyle: Theme.of(context).bottomNavigationBarTheme.unselectedLabelStyle,
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -57,7 +47,6 @@ class _ProfileState extends State<Profile> {
         child: Column(
           children: [
             SizedBox(
-              width: 342,
               height: 75,
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 10),
@@ -108,249 +97,48 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 14),
-              child: SizedBox(
-                width: 342,
-                height: 62,
-                child: ListTile(
-                  contentPadding: EdgeInsets.symmetric(vertical: 10),
-                  leading: Icon(Icons.person, color: Color.fromARGB(255, 58, 58, 58)),
-                  title: Text(
-                    "Edit Profile",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 58, 58, 58),
-                        fontSize: 16,
-                        fontFamily: "Roboto",
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500
-                    ),
-                  ),
-                  subtitle: Text(
-                      'Name, phone no, address, email ...',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 167, 167, 167),
-                          fontSize: 12,
-                          fontFamily: "Roboto",
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.w400
-                      )
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    color: Color.fromARGB(255, 41, 45, 50),
-                    size: 15,
-                  ),
-                ),
-              ),
+            const CustomListTile(
+                color: Color.fromARGB(255, 58, 58, 58),
+                icon: Icons.person,
+                label: "Edit Profile",
+                text: 'Name, phone no, address, email ...'
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 14),
-              child: SizedBox(
-                width: 342,
-                height: 62,
-                child: ListTile(
-                  contentPadding: EdgeInsets.symmetric(vertical: 10),
-                  leading: Icon(Icons.list_alt, color: Color.fromARGB(255, 58, 58, 58)),
-                  title: Text(
-                    "Statements & Reports",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 58, 58, 58),
-                        fontSize: 16,
-                        fontFamily: "Roboto",
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500
-                    ),
-                  ),
-                  subtitle: Text(
-                      'Download transaction details, orders, deliveries',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 167, 167, 167),
-                          fontSize: 12,
-                          fontFamily: "Roboto",
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.w400
-                      )
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    color: Color.fromARGB(255, 41, 45, 50),
-                    size: 15,
-                  ),
-                ),
-              ),
+            const CustomListTile(
+                icon: Icons.list_alt,
+                color: Color.fromARGB(255, 58, 58, 58),
+                label: "Statements & Reports",
+                text: 'Download transaction details, orders, deliveries'
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 14),
-              child: SizedBox(
-                width: 342,
-                height: 62,
-                child: ListTile(
-                  contentPadding: EdgeInsets.symmetric(vertical: 10),
-                  leading: Icon(Icons.ring_volume, color: Color.fromARGB(255, 58, 58, 58)),
-                  title: Text(
-                    "Notification Settings",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 58, 58, 58),
-                        fontSize: 16,
-                        fontFamily: "Roboto",
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500
-                    ),
-                  ),
-                  subtitle: Text(
-                      'mute, unmute, set location & tracking setting',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 167, 167, 167),
-                          fontSize: 12,
-                          fontFamily: "Roboto",
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.w400
-                      )
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    color: Color.fromARGB(255, 41, 45, 50),
-                    size: 15,
-                  ),
-                ),
-              ),
+            const CustomListTile(
+                icon: Icons.ring_volume,
+                color: Color.fromARGB(255, 58, 58, 58),
+                label: "Notification Settings",
+                text: 'mute, unmute, set location & tracking setting'
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 14),
-              child: SizedBox(
-                width: 342,
-                height: 62,
-                child: ListTile(
-                  contentPadding: EdgeInsets.symmetric(vertical: 10),
-                  leading: Icon(Icons.wallet, color: Color.fromARGB(255, 58, 58, 58)),
-                  title: Text(
-                    "Card & Bank account settings",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 58, 58, 58),
-                        fontSize: 16,
-                        fontFamily: "Roboto",
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500
-                    ),
-                  ),
-                  subtitle: Text(
-                      'change cards, delete card details',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 167, 167, 167),
-                          fontSize: 12,
-                          fontFamily: "Roboto",
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.w400
-                      )
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    color: Color.fromARGB(255, 41, 45, 50),
-                    size: 15,
-                  ),
-                ),
-              ),
+            const CustomListTile(
+                icon: Icons.wallet,
+                color: Color.fromARGB(255, 58, 58, 58),
+                label: "Card & Bank account settings",
+                text: 'change cards, delete card details'
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 14),
-              child: SizedBox(
-                width: 342,
-                height: 62,
-                child: ListTile(
-                  contentPadding: EdgeInsets.symmetric(vertical: 10),
-                  leading: Icon(Icons.people, color: Color.fromARGB(255, 58, 58, 58)),
-                  title: Text(
-                    "Referrals",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 58, 58, 58),
-                        fontSize: 16,
-                        fontFamily: "Roboto",
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500
-                    ),
-                  ),
-                  subtitle: Text(
-                      'check no of friends and earn',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 167, 167, 167),
-                          fontSize: 12,
-                          fontFamily: "Roboto",
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.w400
-                      )
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    color: Color.fromARGB(255, 41, 45, 50),
-                    size: 15,
-                  ),
-                ),
-              ),
+            const CustomListTile(
+                icon: Icons.people,
+                color: Color.fromARGB(255, 58, 58, 58),
+                label: "Referrals",
+                text: 'check no of friends and earn'
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 14),
-              child: SizedBox(
-                width: 342,
-                height: 62,
-                child: ListTile(
-                  contentPadding: EdgeInsets.symmetric(vertical: 10),
-                  leading: Icon(Icons.map, color: Color.fromARGB(255, 58, 58, 58)),
-                  title: Text(
-                    "About Us",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 58, 58, 58),
-                        fontSize: 16,
-                        fontFamily: "Roboto",
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500
-                    ),
-                  ),
-                  subtitle: Text(
-                      'know more about us, terms and conditions',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 167, 167, 167),
-                          fontSize: 12,
-                          fontFamily: "Roboto",
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.w400
-                      )
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    color: Color.fromARGB(255, 41, 45, 50),
-                    size: 15,
-                  ),
-                ),
-              ),
+            const CustomListTile(
+                icon: Icons.map,
+                color: Color.fromARGB(255, 58, 58, 58),
+                label: "About Us",
+                text: 'know more about us, terms and conditions'
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 14),
-              child: SizedBox(
-                width: 342,
-                height: 62,
-                child: ListTile(
-                  contentPadding: EdgeInsets.symmetric(vertical: 10),
-                  leading: Icon(Icons.output, color: Color.fromARGB(
-                      255, 237, 58, 58)),
-                  title: Text(
-                    "Log Out",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 58, 58, 58),
-                        fontSize: 16,
-                        fontFamily: "Roboto",
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500
-                    ),
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    color: Color.fromARGB(255, 41, 45, 50),
-                    size: 15,
-                  ),
-                ),
-              ),
-            )
+            const CustomListTile(
+                icon: Icons.output,
+                color: Color.fromARGB(255, 237, 58, 58),
+                label: "Log Out",
+                text: "",
+            ),
           ],
         ),
       ),

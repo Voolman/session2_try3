@@ -29,5 +29,21 @@ var theme = ThemeData(
                 borderRadius: BorderRadius.circular(4)
             )
         )
-    )
+    ),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    selectedLabelStyle: TextStyle(
+        color: Color.fromARGB(255, 167, 167, 167),
+        fontSize: 12,
+        fontFamily: "Roboto",
+        fontWeight: FontWeight.w400,
+        fontStyle: FontStyle.normal
+    ),
+    unselectedLabelStyle: TextStyle(
+        color: Color.fromARGB(255, 5, 96, 250),
+        fontSize: 12,
+        fontFamily: "Roboto",
+        fontWeight: FontWeight.w400,
+        fontStyle: FontStyle.normal
+    ),
+  )
 );

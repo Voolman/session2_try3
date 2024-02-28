@@ -24,20 +24,8 @@ class _HomeState extends State<Home> {
         currentIndex: currentIndex,
         selectedItemColor: const Color.fromARGB(255, 5, 96, 250),
         unselectedItemColor: const Color.fromARGB(255, 167, 167, 167),
-        selectedLabelStyle: const TextStyle(
-            color: Color.fromARGB(255, 167, 167, 167),
-            fontSize: 12,
-            fontFamily: "Roboto",
-            fontWeight: FontWeight.w400,
-            fontStyle: FontStyle.normal
-        ),
-        unselectedLabelStyle: const TextStyle(
-            color: Color.fromARGB(255, 5, 96, 250),
-            fontSize: 12,
-            fontFamily: "Roboto",
-            fontWeight: FontWeight.w400,
-            fontStyle: FontStyle.normal
-        ),
+        selectedLabelStyle: Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
+        unselectedLabelStyle: Theme.of(context).bottomNavigationBarTheme.unselectedLabelStyle,
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
