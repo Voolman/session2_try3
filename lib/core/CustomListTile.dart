@@ -4,8 +4,8 @@ class CustomListTile extends StatelessWidget{
   final IconData icon;
   final Color color;
   final String label;
-  final String text;
-  const CustomListTile({super.key, required this.icon, required this.color, required this.label, required this.text});
+  final String? text;
+  const CustomListTile({super.key, required this.icon, required this.color, required this.label, this.text});
 
 
   @override
@@ -14,7 +14,6 @@ class CustomListTile extends StatelessWidget{
       children: [
         const SizedBox(height: 14),
         Container(
-          height: 62,
           decoration: const BoxDecoration(
             color: Colors.white,
             boxShadow: [
@@ -28,14 +27,23 @@ class CustomListTile extends StatelessWidget{
           child: ListTile(
             contentPadding: const EdgeInsets.only(left: 12),
             leading: Icon(icon, color: color),
-            title: Text(
-              label,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 16)
-            ),
-            subtitle: Text(
-                text,
-                style: Theme.of(context).textTheme.titleSmall
-            ),
+            title: (text != null) ? Padding(
+              padding: const EdgeInsets.only(top:13),
+              child: Text(
+                label,
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 16)
+              ),
+            ) : Text(
+                  label,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 16)
+                ),
+            subtitle: (text != null) ? Padding(
+              padding: const EdgeInsets.only(bottom:13),
+              child: Text(
+                  text!,
+                  style: Theme.of(context).textTheme.titleSmall
+              ),
+            ) : null,
             trailing: const Padding(
               padding: EdgeInsets.only(right: 12),
               child: Icon(

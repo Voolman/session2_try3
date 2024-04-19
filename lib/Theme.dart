@@ -23,7 +23,8 @@ var theme = ThemeData(
     ),
     filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-            backgroundColor: const Color.fromARGB(255, 5, 96, 250),
+            disabledForegroundColor: Colors.white,
+            backgroundColor: const Color.fromARGB(255, 106, 139, 249),
             disabledBackgroundColor: const Color.fromARGB(255, 167, 167, 167),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4)

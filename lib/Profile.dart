@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:session2_try3/Login.dart';
+import 'supabase.dart';
+import 'package:session2_try3/utlis.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'Wallet.dart';
 import 'Track.dart';
 import 'Home.dart';
@@ -133,11 +137,19 @@ class _ProfileState extends State<Profile> {
                 label: "About Us",
                 text: 'know more about us, terms and conditions'
             ),
-            const CustomListTile(
-                icon: Icons.output,
-                color: Color.fromARGB(255, 237, 58, 58),
-                label: "Log Out",
-                text: "",
+            GestureDetector(
+              onTap: (){
+                signOut(
+                    onResponse: (){Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomePage()));
+                      },
+                    onError: (String e){showError(context, e);}
+                  );
+                },
+              child: const CustomListTile(
+                  icon: Icons.output,
+                  color: Color.fromARGB(255, 237, 58, 58),
+                  label: "Log Out",
+              ),
             ),
           ],
         ),

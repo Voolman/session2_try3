@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class CustomField extends StatelessWidget{
   final String text;
   final String hint;
-  const CustomField({super.key, required this.text, required this.hint});
+  final TextEditingController controller;
+  final Function(String)? onChanged;
+  const CustomField({super.key, required this.text, required this.hint, required this.controller, this.onChanged});
 
 
   @override
@@ -22,6 +24,7 @@ class CustomField extends StatelessWidget{
         ),
         const SizedBox(height: 8),
         TextField(
+            controller: controller,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(4),
@@ -33,7 +36,8 @@ class CustomField extends StatelessWidget{
               contentPadding: const EdgeInsets.only(top: 14, bottom: 14,left: 10),
               hintText: hint,
               hintStyle: Theme.of(context).textTheme.titleMedium,
-            )
+            ),
+          onChanged: onChanged,
         ),
       ],
     );
